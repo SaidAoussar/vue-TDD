@@ -5,7 +5,7 @@
     </header>
 
     <main>
-      <ProductCatalog />
+      <!-- <ProductCatalog /> -->
     </main>
 
     <footer>
