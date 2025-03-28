@@ -38,8 +38,4 @@ const handleCategoryChange = (newCategory) => {
 const handleSearchChange = (searchTerm) => {
   productStore.setSearchQuery(searchTerm);
 };
-
-
-
-
 </script>

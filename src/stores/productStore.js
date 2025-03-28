@@ -4,6 +4,7 @@ import { products, categories } from "../../mock-data/products";
 export const useProductStore = defineStore("productStore", {
   state: () => ({
     products,
+    categories,
     selectedCategory: null,
     searchQuery: "",
     sortOption: "",
