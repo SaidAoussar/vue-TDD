@@ -17,6 +17,7 @@ export const useCartStore = defineStore("cartStore", {
       }else{
         this.items = [...this.items, {product, quantity: 1}];
       }
+
     },
 
     updateQuantity(id, qte){

@@ -6,6 +6,7 @@
 
     <main>
       <ProductCatalog />
+      <RouterView />
     </main>
 
     <footer>
@@ -15,7 +16,8 @@
 </template>
 
 <script setup>
-import ProductCatalog from './components/ProductCatalog.vue';
+import { RouterView } from 'vue-router'
+
 </script>
 
 <style>
