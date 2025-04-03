@@ -33,7 +33,11 @@ watch(() => props.currentSort,(newVal) => {
   selectedSort.value = newVal;
 });
 
-function updateSort(value) {
+function updateSort(payload) {
+  const value = typeof payload === 'object' && 'target' in payload
+    ? payload.target.value
+    : payload
+
   emit('sort-change',value);
 }
 </script>

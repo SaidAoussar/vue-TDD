@@ -12,6 +12,8 @@ export const useProductStore = defineStore("productStore", {
 
   actions: {
     setCategory(category) {
+      console.log(category);
+
       this.selectedCategory = category;
     },
 
@@ -20,6 +22,8 @@ export const useProductStore = defineStore("productStore", {
     },
 
     setSortOption(option) {
+
+      console.log(option);
       this.sortOption = option;
     },
   },

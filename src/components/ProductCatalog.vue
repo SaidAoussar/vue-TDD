@@ -12,7 +12,8 @@
     </div>
 
     <div v-else class="product-grid">
-      <ProductCard v-for="product in products" :key="product.id" :product="product" @addToCart="handleAddCart" />
+      <ProductCard v-for="product in filteredProducts" :key="product.id" :product="product"
+        @addToCart="handleAddCart" />
     </div>
 
     <button class="go-to-cart-btn" @click="goToCart">
@@ -37,7 +38,7 @@ const cartStore = useCartStore()
 const router = useRouter()
 
 
-const { products,categories } = storeToRefs(productStore);
+const { products,categories,filteredProducts } = storeToRefs(productStore);
 
 
 const handleSortChange = (newSort) => {

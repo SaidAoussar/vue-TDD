@@ -15,7 +15,7 @@ describe("CartItem.vue",  () => {
     const cartItem = {product, quantity: 2};
     const wrapper = mount(CartItem, {
       props:{
-        cartItem
+        item:cartItem
       }
     });
 
@@ -43,18 +43,27 @@ describe("CartItem.vue",  () => {
     // qte input
     const priceInputEl = wrapper.find('[data-test="qte-input"]')
     expect(priceInputEl.exists()).toBe(true);
-    expect(priceInputEl.attributes('value')).toBe(cartItem.quantity);
+    expect(priceInputEl.attributes('value')).toBe(cartItem.quantity.toString());
 
     //total
     const total = cartItem.quantity * cartItem.product.price;
     const formattedTotal = formatCurrency(total, 'USD', 'en-US');
     const totalEl = wrapper.find('[data-test="item-total"]');
     expect(totalEl.exists()).toBe(true);
-    expect(totalEl.text).toBe(formattedTotal);
+    expect(totalEl.text()).toContain(formattedTotal);
 
     // remove btn
 
     const removeBtn = wrapper.find('[data-test="remove-btn"]');
+    expect(removeBtn.exists()).toBe(true);
+    expect(removeBtn.text().toLowerCase()).toContain('remove');
+
+    await removeBtn.trigger('click');
+
+    expect(wrapper.emitted('remove-item')).toBeTruthy();
+    expect(wrapper.emitted('remove-item')[0][0]).toEqual({
+      productId: product.id,
+    });
    
 
   })
